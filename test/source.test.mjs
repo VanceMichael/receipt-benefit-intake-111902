@@ -22,7 +22,7 @@ test.after(async () => {
 test('已登记的原始资料可以按来源契约读取', async () => {
   const routes = scenario.routes.filter(route => route.method === 'GET' &&
     !route.steps[0].lookup && route.kind !== 'ticket');
-  assert.ok(routes.length > 2);
+  assert.deepEqual(routes.map(route => route.path), ['/issuer/tickets', '/pos/ledger']);
   for (const phase of [0, 1]) {
     const changed = await send('/replay/phase', { phase });
     assert.deepEqual(await changed.json(), { phase });
