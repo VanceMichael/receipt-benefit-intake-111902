@@ -8,6 +8,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "start": "node start.mjs"
+    "start": "node start.mjs",
+    "app": "node app-start.mjs",
+    "cli": "node cli.mjs"
   }
 }
